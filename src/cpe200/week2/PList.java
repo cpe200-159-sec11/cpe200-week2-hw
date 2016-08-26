@@ -90,7 +90,7 @@ public class PList {
     public void printForward() {
         PNode tmp = head;
         while (tmp != null) {
-            System.out.println(tmp.data);
+            System.out.print(tmp.data);
             tmp = tmp.next;
         }
         System.out.println();
@@ -99,7 +99,7 @@ public class PList {
     public void printBackward() {
         PNode tmp = tail;
         while (tmp != null) {
-            System.out.println(tmp.data);
+            System.out.print(tmp.data);
             tmp = tmp.prev;
         }
         System.out.println();
