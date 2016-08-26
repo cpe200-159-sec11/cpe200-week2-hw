@@ -14,7 +14,15 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+        PNode tmp = head;
+        if (head == null) {
+            pushToHead(i);
+        }
+        else {
+            tmp = tail;
+            tail = new PNode(i, null, tmp);
+            tmp.next = tail;
+        }
     }
 
     public char popHead() {
@@ -35,26 +43,66 @@ public class PList {
     }
 
     public char popTail() {
-        // implement your code here
+        if (head != null && tail != null) {
+            PNode tmp = tail;
+            char el = tail.data;
+            if (head == tail)
+            {
+                head = tail = null;
+            }
+            else {
+                tail = tail.prev;
+                tail.next = null;
+            }
+            tmp.next = null;
+            size--;
+            return el;
+        }
+        else {
+            return 0;
+        }
+
     }
 
     public boolean search(char i) {
-        // implement your code here
+        PNode tmp = head;
+        if (head != null) {
+            while ((tmp.data != i) && (tmp.next != null)) { //Search and compare
+                tmp = tmp.next;
+            }
+            if (tmp.data == i) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else if(head == null){
+            return false;
+        }
+        else {
+            return false;
+        }
     }
 
     public boolean isEmpty() { return (head == null); }
 
     public void printForward() {
         PNode tmp = head;
-
         while (tmp != null) {
-            // implement your code here
+            System.out.print(tmp.data);
+            tmp = tmp.next;
         }
         System.out.println();
     }
 
     public void printBackward() {
-        // implement your code here
+        PNode tmp = tail;
+        while (tmp != null) {
+            System.out.print(tmp.data);
+            tmp = tmp.prev;
+        }
+        System.out.println();
     }
 
     public int getSize() {
@@ -63,4 +111,4 @@ public class PList {
 
     private PNode head, tail;
     private int size=0;
-}
+    }
