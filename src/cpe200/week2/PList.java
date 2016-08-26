@@ -1,5 +1,7 @@
 package cpe200.week2;
 
+import java.util.LinkedList;
+
 public class PList {
 
     public PList() { head = tail = null; }
@@ -14,7 +16,14 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+        tail = new PNode(i,null,tail);
+        if(tail==null)
+        {
+            tail =head;
+        }
+        else tail.prev.next  = tail;
+
+        size++;
     }
 
     public char popHead() {
@@ -35,11 +44,35 @@ public class PList {
     }
 
     public char popTail() {
-        // implement your code here
+        char i =tail.data;
+        PNode tmp = tail;
+        if(head == tail)
+        {
+            head = tail =null;
+        }
+        else {
+            tail = tail.prev;
+            tail.next = null;
+            tmp.next = null;
+
+        }
+        size--;
+        return i;
     }
 
     public boolean search(char i) {
-        // implement your code here
+        PNode tmp = head;
+        while (tmp != null)
+        {
+            if(tmp.data == i)
+            {
+                return true;
+            }
+            else tmp = tmp.next;
+        }
+
+
+        return false;
     }
 
     public boolean isEmpty() { return (head == null); }
@@ -48,13 +81,20 @@ public class PList {
         PNode tmp = head;
 
         while (tmp != null) {
-            // implement your code here
+            System.out.print(tmp.data);
+            tmp = tmp.next;
         }
         System.out.println();
     }
 
     public void printBackward() {
         // implement your code here
+        PNode tmp = tail;
+                while(tmp != null){
+                    System.out.print(tmp.data);
+                    tmp = tmp.prev;
+                }
+                System.out.println();
     }
 
     public int getSize() {
