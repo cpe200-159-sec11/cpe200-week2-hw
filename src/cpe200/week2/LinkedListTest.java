@@ -1,3 +1,4 @@
+
 package cpe200.week2;
 
 public class LinkedListTest {
@@ -12,6 +13,7 @@ public class LinkedListTest {
         l.pushToHead('E');
         l.pushToHead('#');
         l.pushToHead('3');
+
 
         System.out.println("List Empty?: "+ l.isEmpty());
         System.out.println("List Size: "+l.getSize());
