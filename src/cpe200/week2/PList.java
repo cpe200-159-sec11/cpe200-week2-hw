@@ -65,7 +65,7 @@ public class PList {
             if(tmp.data == i){
                 return true;
             }
-            tmp = tmp.next;
+            tmp = tmp.prev;
         }
         return false;
 
