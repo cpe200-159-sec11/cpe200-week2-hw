@@ -2,11 +2,13 @@ package cpe200.week2;
 
 public class PList {
 
-    public PList() { head = tail = null; }
+    public PList() {
+        head = tail = null;
+    }
 
     public void pushToHead(char i) {
         head = new PNode(i, head, null);
-        if (tail==null)
+        if (tail == null)
             tail = head;
         else
             head.next.prev = head;
@@ -14,8 +16,14 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+        tail = new PNode(i, head, null);
+        if (head == null){
+            head = tail;
     }
+        else
+      tail.prev.next=tail;
+    size++;
+}
 
     public char popHead() {
         char i=head.data;
@@ -34,27 +42,59 @@ public class PList {
         return i;
     }
 
-    public char popTail() {
-        // implement your code here
-    }
+      public char popTail() {
+          char i = tail.data;
+          PNode tmp = tail.prev;
+          if (head==tail){
+              head = tail = null;
+          }
+          else{
+              tail = tail.prev;
+              tail.next = null;
+              tmp.next = null;
+          }
 
-    public boolean search(char i) {
-        // implement your code here
-    }
+          size--;
+
+          return i ;
+
+      }
+
+      public boolean search(char i) {
+        PNode tmp = head;       //set the first position.
+
+          while(tmp != null)
+          {
+             if(tmp.data == i)
+             {
+                 return true;
+             }
+              tmp = tmp.next;
+          }
+          return false;
+      }
 
     public boolean isEmpty() { return (head == null); }
+
 
     public void printForward() {
         PNode tmp = head;
 
         while (tmp != null) {
-            // implement your code here
+            System.out.print(tmp.data);
+            tmp = tmp.next;
         }
         System.out.println();
     }
 
     public void printBackward() {
-        // implement your code here
+        PNode tmp = tail;
+
+        while (tmp != null) {
+            System.out.print(tmp.data);
+            tmp = tmp.prev;
+        }
+        System.out.println();
     }
 
     public int getSize() {
