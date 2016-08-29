@@ -88,26 +88,24 @@ public class PList {
         return (head == null);
     }
 
-    public void printForward() {
+     public void printForward() {
         PNode tmp = head;
 
-        while (tmp != null)
-        {
-            System.out.println(tmp.data) ;
-            tmp = tmp.next;
-
+        while (tmp != null) {
+            System.out.print(tmp.data);
+            tmp=tmp.next;
         }
+        System.out.println();
     }
 
     public void printBackward() {
-        PNode tmp = tail;
-
-        while (tmp != null)
-        {
-            System.out.println(tmp.data) ;
-            tmp = tmp.prev;
-
+        PNode tmp=tail;
+        while(tmp!=null){
+            System.out.print(tmp.data);
+            tmp=tmp.prev;
         }
+
+        System.out.println();
     }
 
     public int getSize()
