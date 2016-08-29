@@ -27,6 +27,7 @@ public class PList {
             tail = temp;
 
         }
+        size++;
     }
 
     public char popHead() {
@@ -97,7 +98,7 @@ public class PList {
             System.out.print(tmp.data);
             tmp = tmp.prev;
         }
-        System.out.print(tmp);
+        System.out.println();
     }
 
     public int getSize() {
