@@ -1,5 +1,7 @@
 package cpe200.week2;
 
+import javax.xml.soap.Node;
+
 public class PList {
 
     public PList() { head = tail = null; }
@@ -14,6 +16,13 @@ public class PList {
     }
 
     public void pushToTail(char i) {
+        tail=new PNode(i,null,tail);
+        if(head==null)
+            head=tail;
+        else
+            tail.prev.next=tail;
+        size++;
+
         // implement your code here
     }
 
@@ -35,10 +44,33 @@ public class PList {
     }
 
     public char popTail() {
+        char i=tail.data;
+        PNode tmp=tail;
+        if(tail==head){
+            tail=head=null;
+        }
+        else{
+            tail=tail.prev;
+            tail.next=null;
+            tmp.prev=null;
+        }
+        size--;
+
+        return i;
         // implement your code here
     }
 
     public boolean search(char i) {
+        PNode tmp=tail;
+        while (tmp!=null)
+        {
+            if(tmp.data==i){
+                return true;
+            }
+            tmp=tmp.prev;
+        }
+        return false;
+
         // implement your code here
     }
 
@@ -46,14 +78,23 @@ public class PList {
 
     public void printForward() {
         PNode tmp = head;
+        System.out.println(tmp.data);
 
         while (tmp != null) {
+            System.out.print(tmp.data);
+            tmp=tmp.next;
             // implement your code here
         }
         System.out.println();
     }
 
     public void printBackward() {
+        PNode tmp=tail;
+        while (tmp!=null){
+            System.out.print(tmp.data);
+            tmp=tmp.prev;
+        }
+        System.out.println();
         // implement your code here
     }
 
