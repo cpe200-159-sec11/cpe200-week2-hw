@@ -79,7 +79,7 @@ public class PList {
         PNode tmp = head;
         while (tmp != null) {
             {
-                System.out.println(tmp.data);
+                System.out.print(tmp.data);
                 tmp = tmp.next;
             }
         }
@@ -91,7 +91,7 @@ public class PList {
         PNode tmp = tail;
         while (tmp!=null)
         {
-            System.out.println(tmp.data);
+            System.out.print(tmp.data);
             tmp = tmp.prev;
         }
         System.out.println();
