@@ -38,8 +38,8 @@ public class PList {
     }
 
     public char popTail() {
-        char i = head.data;
-        PNode tmp = head;
+        char i = tail.data;
+        PNode tmp = tail;
 
         if (head == tail)
             head = tail = null;
